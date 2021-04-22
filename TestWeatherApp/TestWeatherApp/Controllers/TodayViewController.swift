@@ -10,6 +10,7 @@ import CoreLocation
 
 class TodayViewController: UIViewController, CurrentWeatherView {
     // MARK: - Properties
+    let locationManager = CLLocationManager()
     var model: ModelCurrentWeather?
     var location: CLLocationCoordinate2D? {
         didSet {
@@ -32,7 +33,7 @@ class TodayViewController: UIViewController, CurrentWeatherView {
     
     
     
-    let locationManager = CLLocationManager()
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,13 +43,16 @@ class TodayViewController: UIViewController, CurrentWeatherView {
     }
     
     func setParameters(model: ModelCurrentWeather) {
+        self.mainImage.load(with: "http://openweathermap.org/img/w/\(model.weather[0].icon ?? " ").png")
+        
         self.cityNameLabel.text = model.name
-        self.temperatureLabel.text = "\(model.main.temperature)"
+        self.temperatureLabel.text = "\(Int(model.main.temperature))°C"
         self.tempDiscriptionLabel.text = model.weather[0].main
         self.humidityLabel.text = "\(model.main.humidity)"
         self.precipitationLabel.text = "\(model.rain?.oneHour ?? model.snow?.oneHour ?? 0.0)"
         self.pressureLabel.text = "\(model.main.pressure)"
         self.speedOfWindLabel.text = "\(model.wind?.speed ?? 0.0)"
+        
         guard let wind = model.wind else { return }
         switch wind.degrees {
         case 0.0...11.24:
@@ -106,5 +110,7 @@ class TodayViewController: UIViewController, CurrentWeatherView {
     
     // MARK: - Actions
     @IBAction func pressButtonShare(_ sender: Any) {
+        let presenter = CurrentWeatherPresenter(view: self)
+        presenter.updateCurrentWeatherView()
     }
 }

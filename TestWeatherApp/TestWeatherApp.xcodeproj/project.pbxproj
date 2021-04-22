@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75D78BE62631528D000F6BF3 /* ImageView+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D78BE52631528D000F6BF3 /* ImageView+Ex.swift */; };
+		75D78BE9263163E3000F6BF3 /* String+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D78BE8263163E3000F6BF3 /* String+Ex.swift */; };
 		75F8CA3A262EB46E00174BFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8CA39262EB46E00174BFC /* AppDelegate.swift */; };
 		75F8CA3C262EB46E00174BFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8CA3B262EB46E00174BFC /* SceneDelegate.swift */; };
 		75F8CA3E262EB46E00174BFC /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8CA3D262EB46E00174BFC /* TodayViewController.swift */; };
@@ -18,9 +20,16 @@
 		75F8CA64262F519600174BFC /* CurrentWeatherProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8CA63262F519600174BFC /* CurrentWeatherProtocols.swift */; };
 		75F8CA68262F5D5000174BFC /* CurrentWeatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8CA67262F5D5000174BFC /* CurrentWeatherPresenter.swift */; };
 		75F8CA6C2630350D00174BFC /* ViewController+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8CA6B2630350D00174BFC /* ViewController+Ex.swift */; };
+		75F8CA7426303B8900174BFC /* ForecastWeatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8CA7326303B8900174BFC /* ForecastWeatherPresenter.swift */; };
+		75F8CA7726303BA400174BFC /* ForecastWeatherProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8CA7626303BA400174BFC /* ForecastWeatherProtocols.swift */; };
+		75F8CA7A26303BC100174BFC /* ModelForecastWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8CA7926303BC100174BFC /* ModelForecastWeather.swift */; };
+		75F8CA7E263062BD00174BFC /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8CA7D263062BD00174BFC /* WeatherCell.swift */; };
+		75F8CA822630666B00174BFC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 75F8CA812630666B00174BFC /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		75D78BE52631528D000F6BF3 /* ImageView+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+Ex.swift"; sourceTree = "<group>"; };
+		75D78BE8263163E3000F6BF3 /* String+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ex.swift"; sourceTree = "<group>"; };
 		75F8CA36262EB46E00174BFC /* TestWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75F8CA39262EB46E00174BFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75F8CA3B262EB46E00174BFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +43,10 @@
 		75F8CA63262F519600174BFC /* CurrentWeatherProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherProtocols.swift; sourceTree = "<group>"; };
 		75F8CA67262F5D5000174BFC /* CurrentWeatherPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherPresenter.swift; sourceTree = "<group>"; };
 		75F8CA6B2630350D00174BFC /* ViewController+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Ex.swift"; sourceTree = "<group>"; };
+		75F8CA7326303B8900174BFC /* ForecastWeatherPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeatherPresenter.swift; sourceTree = "<group>"; };
+		75F8CA7626303BA400174BFC /* ForecastWeatherProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeatherProtocols.swift; sourceTree = "<group>"; };
+		75F8CA7926303BC100174BFC /* ModelForecastWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelForecastWeather.swift; sourceTree = "<group>"; };
+		75F8CA7D263062BD00174BFC /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75F8CA822630666B00174BFC /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +80,7 @@
 		75F8CA38262EB46E00174BFC /* TestWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				75F8CA7C263062AA00174BFC /* Cells */,
 				75F8CA6A263034F100174BFC /* Extensions */,
 				75F8CA5A262ED12900174BFC /* Common */,
 				75F8CA59262ED0E400174BFC /* Presenters */,
@@ -94,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				75F8CA5D262F332A00174BFC /* ModelCurrentWeather.swift */,
+				75F8CA7926303BC100174BFC /* ModelForecastWeather.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -102,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				75F8CA67262F5D5000174BFC /* CurrentWeatherPresenter.swift */,
+				75F8CA7326303B8900174BFC /* ForecastWeatherPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -118,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				75F8CA63262F519600174BFC /* CurrentWeatherProtocols.swift */,
+				75F8CA7626303BA400174BFC /* ForecastWeatherProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -126,8 +144,18 @@
 			isa = PBXGroup;
 			children = (
 				75F8CA6B2630350D00174BFC /* ViewController+Ex.swift */,
+				75D78BE52631528D000F6BF3 /* ImageView+Ex.swift */,
+				75D78BE8263163E3000F6BF3 /* String+Ex.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		75F8CA7C263062AA00174BFC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				75F8CA7D263062BD00174BFC /* WeatherCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +174,9 @@
 			dependencies = (
 			);
 			name = TestWeatherApp;
+			packageProductDependencies = (
+				75F8CA812630666B00174BFC /* SnapKit */,
+			);
 			productName = TestWeatherApp;
 			productReference = 75F8CA36262EB46E00174BFC /* TestWeatherApp.app */;
 			productType = "com.apple.product-type.application";
@@ -173,6 +204,9 @@
 				Base,
 			);
 			mainGroup = 75F8CA2D262EB46D00174BFC;
+			packageReferences = (
+				75F8CA802630666B00174BFC /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 75F8CA37262EB46E00174BFC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -202,12 +236,18 @@
 			files = (
 				75F8CA64262F519600174BFC /* CurrentWeatherProtocols.swift in Sources */,
 				75F8CA6C2630350D00174BFC /* ViewController+Ex.swift in Sources */,
+				75D78BE62631528D000F6BF3 /* ImageView+Ex.swift in Sources */,
 				75F8CA50262EB8B400174BFC /* ForecastViewController.swift in Sources */,
+				75F8CA7726303BA400174BFC /* ForecastWeatherProtocols.swift in Sources */,
+				75F8CA7A26303BC100174BFC /* ModelForecastWeather.swift in Sources */,
 				75F8CA3E262EB46E00174BFC /* TodayViewController.swift in Sources */,
 				75F8CA5E262F332A00174BFC /* ModelCurrentWeather.swift in Sources */,
 				75F8CA3A262EB46E00174BFC /* AppDelegate.swift in Sources */,
+				75D78BE9263163E3000F6BF3 /* String+Ex.swift in Sources */,
+				75F8CA7E263062BD00174BFC /* WeatherCell.swift in Sources */,
 				75F8CA3C262EB46E00174BFC /* SceneDelegate.swift in Sources */,
 				75F8CA68262F5D5000174BFC /* CurrentWeatherPresenter.swift in Sources */,
+				75F8CA7426303B8900174BFC /* ForecastWeatherPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +449,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		75F8CA802630666B00174BFC /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		75F8CA812630666B00174BFC /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75F8CA802630666B00174BFC /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 75F8CA2E262EB46D00174BFC /* Project object */;
 }
