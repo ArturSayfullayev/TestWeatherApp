@@ -10,19 +10,15 @@ import CoreLocation
 
 class ForecastViewController: UIViewController, ForecastWeatherView {
     // MARK: - Properties
-    var sectionData: [Section] = [.one, .two, .three, .four, .five]
-    let locationManager = CLLocationManager()
-    
-    @IBOutlet weak var tableView: UITableView!
-    
-    var model: ModelForecastWeather? {
+    private let locationManager = CLLocationManager()
+    private var model: ModelForecastWeather? {
         didSet {
             guard let model = self.model else { return }
             self.sortArrayModel(model: model)
         }
     }
     
-    var arrayModel: [[ForecastList]] = [[]] {
+    private var arrayModel: [[ForecastList]] = [[]] {
         didSet {
             self.tableView.reloadData()
         }
@@ -32,12 +28,11 @@ class ForecastViewController: UIViewController, ForecastWeatherView {
         didSet {
             let presenter = ForecastWeatherPresenter(view: self)
             presenter.updateForecastWeatherView()
-            
         }
     }
     
-    
-    
+    // MARK: - Outlets
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -45,11 +40,20 @@ class ForecastViewController: UIViewController, ForecastWeatherView {
 
         self.setPropertiesLocationManager()
         self.tableView.register(WeatherCell.self,
-                           forCellReuseIdentifier: "WeatherCell")
-        
-        
+                                forCellReuseIdentifier: WeatherCell.reuseIdentifier)
     }
-    func sortArrayModel(model: ModelForecastWeather) {
+    
+    // MARK: - Methods
+    private func setPropertiesLocationManager() {
+        self.locationManager.requestAlwaysAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    private func sortArrayModel(model: ModelForecastWeather) {
         var array1: [ForecastList] = []
         var array2: [ForecastList] = []
         var array3: [ForecastList] = []
@@ -77,35 +81,26 @@ class ForecastViewController: UIViewController, ForecastWeatherView {
                 array6.append(list)
             }
         }
-        
         self.arrayModel = [array1]
         self.arrayModel.append(array2)
         self.arrayModel.append(array3)
         self.arrayModel.append(array4)
         self.arrayModel.append(array5)
         self.arrayModel.append(array6)
-        
-        for (i, u) in self.arrayModel.enumerated() {
-            print(i, u)
-        }
     }
     
     func setParameters(model: ModelForecastWeather) {
         self.model = model
+    }
+    func handleError(error: NetworkError) {
+        let alert = ErrorAlert.shared.errorAlert(error: error)
+        self.present(alert, animated: true)
     }
     
     func getLocation() -> CLLocationCoordinate2D? {
         guard let location = self.location else { return nil }
         return location
         }
-    func setPropertiesLocationManager() {
-        self.locationManager.requestAlwaysAuthorization()
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
-    }
 }
 
 extension ForecastViewController: UITableViewDelegate, UITableViewDataSource {
@@ -121,21 +116,16 @@ extension ForecastViewController: UITableViewDelegate, UITableViewDataSource {
         return self.arrayModel[section].count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: WeatherCell.reuseIdentifier, for: indexPath)
         
         if let cell = cell as? WeatherCell {
             cell.setProperties(image: self.arrayModel[indexPath.section][indexPath.row].weather[0].icon,
-                               time: self.arrayModel[indexPath.section][indexPath.row].date.fullDateToTime()!,
+                               time: self.arrayModel[indexPath.section][indexPath.row].date.fullDateToTime() ?? "Error",
                                decription: self.arrayModel[indexPath.section][indexPath.row].weather[0].main,
                                temp: "\(Int(self.arrayModel[indexPath.section][indexPath.row].main.temperature))°")
             cell.selectionStyle = .none
         }
- 
         return cell
-        
     }
-    
-    
 }

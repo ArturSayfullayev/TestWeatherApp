@@ -120,6 +120,3 @@ class CurrentSnow: Decodable {
         self.oneHour = try container.decode(Double.self, forKey: .oneHour)
     }
 }
-
-
-

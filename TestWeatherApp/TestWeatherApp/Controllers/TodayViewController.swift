@@ -10,8 +10,8 @@ import CoreLocation
 
 class TodayViewController: UIViewController, CurrentWeatherView {
     // MARK: - Properties
+    private var temperatureForShare: Int?
     let locationManager = CLLocationManager()
-    var model: ModelCurrentWeather?
     var location: CLLocationCoordinate2D? {
         didSet {
             let presenter = CurrentWeatherPresenter(view: self)
@@ -20,6 +20,7 @@ class TodayViewController: UIViewController, CurrentWeatherView {
     }
     
     // MARK: - Outlets
+    @IBOutlet weak var button: UIButton!
     @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -30,16 +31,37 @@ class TodayViewController: UIViewController, CurrentWeatherView {
     @IBOutlet weak var pressureLabel: UILabel!
     @IBOutlet weak var speedOfWindLabel: UILabel!
     @IBOutlet weak var directionOfWind: UILabel!
-    
-    
-    
-    
+ 
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
    
         self.setPropertiesLocationManager()
-   
+        self.setProperties()
+    }
+    
+    // MARK: - Methods
+    private func setProperties() {
+        self.button.layer.borderWidth = 1
+        self.button.layer.cornerRadius = 15
+        self.view.backgroundColor = UIColor(named: "BackgroundColor")
+        self.temperatureLabel.textColor = UIColor(named: "TextColor")
+        self.tempDiscriptionLabel.textColor = UIColor(named: "TextColor")
+    }
+    
+    private func shareTemperature() {
+        guard let temperature = temperatureForShare else { return }
+        let alert = ShareAlert.shared.shareAlert(message: temperature)
+        self.present(alert, animated: true)
+    }
+    
+    private func setPropertiesLocationManager() {
+        self.locationManager.requestAlwaysAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
     }
     
     func setParameters(model: ModelCurrentWeather) {
@@ -52,6 +74,8 @@ class TodayViewController: UIViewController, CurrentWeatherView {
         self.precipitationLabel.text = "\(model.rain?.oneHour ?? model.snow?.oneHour ?? 0.0)"
         self.pressureLabel.text = "\(model.main.pressure)"
         self.speedOfWindLabel.text = "\(model.wind?.speed ?? 0.0)"
+        
+        self.temperatureForShare = Int(model.main.temperature)
         
         guard let wind = model.wind else { return }
         switch wind.degrees {
@@ -92,16 +116,11 @@ class TodayViewController: UIViewController, CurrentWeatherView {
         default:
             self.directionOfWind.text = "- -"
         }
-        
     }
     
-    func setPropertiesLocationManager() {
-        self.locationManager.requestAlwaysAuthorization()
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
+    func handleError(error: NetworkError) {
+        let alert = ErrorAlert.shared.errorAlert(error: error)
+        self.present(alert, animated: true)
     }
     
     func getLocation() -> CLLocationCoordinate2D? {
@@ -110,7 +129,6 @@ class TodayViewController: UIViewController, CurrentWeatherView {
     
     // MARK: - Actions
     @IBAction func pressButtonShare(_ sender: Any) {
-        let presenter = CurrentWeatherPresenter(view: self)
-        presenter.updateCurrentWeatherView()
+        self.shareTemperature()
     }
 }

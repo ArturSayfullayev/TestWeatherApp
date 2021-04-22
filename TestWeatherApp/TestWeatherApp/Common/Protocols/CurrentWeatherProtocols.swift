@@ -10,6 +10,7 @@ import CoreLocation
 protocol CurrentWeatherView: class {
     func setParameters(model: ModelCurrentWeather)
     func getLocation() -> CLLocationCoordinate2D?
+    func handleError(error: NetworkError)
 }
 
 protocol CurrentWeatherViewPresenter {

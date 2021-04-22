@@ -24,7 +24,7 @@ class WeatherCell: UITableViewCell {
         label.numberOfLines = 1
         label.font = UIFont.systemFont(ofSize: 17)
         label.textAlignment = .left
-        label.textColor = .black
+        label.textColor = UIColor(named: "CellTextColor")
         return label
     }()
     
@@ -33,7 +33,7 @@ class WeatherCell: UITableViewCell {
         label.numberOfLines = 1
         label.font = UIFont.systemFont(ofSize: 17)
         label.textAlignment = .left
-        label.textColor = .black
+        label.textColor = UIColor(named: "CellTextColor")
         return label
     }()
     
@@ -52,6 +52,7 @@ class WeatherCell: UITableViewCell {
         
         self.initView()
         self.constraints()
+        self.contentView.backgroundColor = UIColor(named: "CellBackgroundColor")
     }
     
     required init?(coder: NSCoder) {
@@ -86,6 +87,7 @@ class WeatherCell: UITableViewCell {
         }
     }
     
+    // MARK: - Methods
     func setProperties(image: String, time: String, decription: String, temp: String) {
         self.mainImage.load(with: "http://openweathermap.org/img/w/\(image).png")
         self.timeLabel.text = time

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75BD7FA22631E44800C101CF /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BD7FA12631E44800C101CF /* Networking.swift */; };
+		75BD7FA62631E54100C101CF /* Networking+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BD7FA52631E54100C101CF /* Networking+Ex.swift */; };
+		75BD7FA92631E64E00C101CF /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BD7FA82631E64E00C101CF /* NetworkError.swift */; };
+		75BD7FB32631F2F700C101CF /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BD7FB22631F2F700C101CF /* ErrorAlert.swift */; };
+		75BD7FB72631FC4E00C101CF /* ShareAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BD7FB62631FC4E00C101CF /* ShareAlert.swift */; };
 		75D78BE62631528D000F6BF3 /* ImageView+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D78BE52631528D000F6BF3 /* ImageView+Ex.swift */; };
 		75D78BE9263163E3000F6BF3 /* String+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D78BE8263163E3000F6BF3 /* String+Ex.swift */; };
 		75F8CA3A262EB46E00174BFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8CA39262EB46E00174BFC /* AppDelegate.swift */; };
@@ -28,6 +33,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		75BD7FA12631E44800C101CF /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		75BD7FA52631E54100C101CF /* Networking+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Networking+Ex.swift"; sourceTree = "<group>"; };
+		75BD7FA82631E64E00C101CF /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		75BD7FB22631F2F700C101CF /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
+		75BD7FB62631FC4E00C101CF /* ShareAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareAlert.swift; sourceTree = "<group>"; };
 		75D78BE52631528D000F6BF3 /* ImageView+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+Ex.swift"; sourceTree = "<group>"; };
 		75D78BE8263163E3000F6BF3 /* String+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ex.swift"; sourceTree = "<group>"; };
 		75F8CA36262EB46E00174BFC /* TestWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +71,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		75BD7FA02631E42A00C101CF /* NetWorking */ = {
+			isa = PBXGroup;
+			children = (
+				75BD7FA12631E44800C101CF /* Networking.swift */,
+				75BD7FA82631E64E00C101CF /* NetworkError.swift */,
+			);
+			path = NetWorking;
+			sourceTree = "<group>";
+		};
+		75BD7FB12631F2E600C101CF /* Allerts */ = {
+			isa = PBXGroup;
+			children = (
+				75BD7FB22631F2F700C101CF /* ErrorAlert.swift */,
+				75BD7FB62631FC4E00C101CF /* ShareAlert.swift */,
+			);
+			path = Allerts;
+			sourceTree = "<group>";
+		};
 		75F8CA2D262EB46D00174BFC = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +108,7 @@
 		75F8CA38262EB46E00174BFC /* TestWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				75BD7FA02631E42A00C101CF /* NetWorking */,
 				75F8CA7C263062AA00174BFC /* Cells */,
 				75F8CA6A263034F100174BFC /* Extensions */,
 				75F8CA5A262ED12900174BFC /* Common */,
@@ -126,6 +155,7 @@
 		75F8CA5A262ED12900174BFC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				75BD7FB12631F2E600C101CF /* Allerts */,
 				75F8CA62262F517D00174BFC /* Protocols */,
 			);
 			path = Common;
@@ -146,6 +176,7 @@
 				75F8CA6B2630350D00174BFC /* ViewController+Ex.swift */,
 				75D78BE52631528D000F6BF3 /* ImageView+Ex.swift */,
 				75D78BE8263163E3000F6BF3 /* String+Ex.swift */,
+				75BD7FA52631E54100C101CF /* Networking+Ex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -235,18 +266,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				75F8CA64262F519600174BFC /* CurrentWeatherProtocols.swift in Sources */,
+				75BD7FB72631FC4E00C101CF /* ShareAlert.swift in Sources */,
 				75F8CA6C2630350D00174BFC /* ViewController+Ex.swift in Sources */,
 				75D78BE62631528D000F6BF3 /* ImageView+Ex.swift in Sources */,
 				75F8CA50262EB8B400174BFC /* ForecastViewController.swift in Sources */,
 				75F8CA7726303BA400174BFC /* ForecastWeatherProtocols.swift in Sources */,
 				75F8CA7A26303BC100174BFC /* ModelForecastWeather.swift in Sources */,
+				75BD7FA92631E64E00C101CF /* NetworkError.swift in Sources */,
+				75BD7FA22631E44800C101CF /* Networking.swift in Sources */,
 				75F8CA3E262EB46E00174BFC /* TodayViewController.swift in Sources */,
 				75F8CA5E262F332A00174BFC /* ModelCurrentWeather.swift in Sources */,
 				75F8CA3A262EB46E00174BFC /* AppDelegate.swift in Sources */,
 				75D78BE9263163E3000F6BF3 /* String+Ex.swift in Sources */,
 				75F8CA7E263062BD00174BFC /* WeatherCell.swift in Sources */,
 				75F8CA3C262EB46E00174BFC /* SceneDelegate.swift in Sources */,
+				75BD7FB32631F2F700C101CF /* ErrorAlert.swift in Sources */,
 				75F8CA68262F5D5000174BFC /* CurrentWeatherPresenter.swift in Sources */,
+				75BD7FA62631E54100C101CF /* Networking+Ex.swift in Sources */,
 				75F8CA7426303B8900174BFC /* ForecastWeatherPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

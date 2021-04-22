@@ -7,11 +7,6 @@
 
 import Foundation
 
-enum Section: CaseIterable {
-    case one, two, three, four, five
-}
-
-
 class ModelForecastWeather: Decodable {
     var list: [ForecastList]
     var city: ForecastCity
@@ -93,4 +88,3 @@ class ForecastCity: Decodable {
         self.name = try container.decode(String.self, forKey: .name)
     }
 }
-

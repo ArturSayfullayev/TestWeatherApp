@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIImageView {
+    /// Method for load image from server
     func load(with url: String) {
         DispatchQueue.global().async {
             guard let url = URL(string: url),

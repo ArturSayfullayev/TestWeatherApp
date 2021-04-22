@@ -166,8 +166,12 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mYn-fd-LcN">
-                                <rect key="frame" x="179" y="706" width="56" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <rect key="frame" x="132" y="706" width="150" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="DMm-fI-tGl"/>
+                                    <constraint firstAttribute="width" constant="150" id="Dbq-JD-caS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Share">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -215,6 +219,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Today" image="TodayIcon" id="8V2-My-UP8"/>
                     <connections>
+                        <outlet property="button" destination="mYn-fd-LcN" id="35b-yY-U8X"/>
                         <outlet property="cityNameLabel" destination="Td2-2A-YVU" id="AjG-R7-1fT"/>
                         <outlet property="directionOfWind" destination="qor-sO-jsY" id="pNM-7e-8rd"/>
                         <outlet property="humidityLabel" destination="VHv-sS-LCC" id="5pN-oP-bPw"/>
