@@ -70,10 +70,10 @@ class TodayViewController: UIViewController, CurrentWeatherView {
         self.cityNameLabel.text = model.name
         self.temperatureLabel.text = "\(Int(model.main.temperature))°C"
         self.tempDiscriptionLabel.text = model.weather[0].main
-        self.humidityLabel.text = "\(model.main.humidity)"
-        self.precipitationLabel.text = "\(model.rain?.oneHour ?? model.snow?.oneHour ?? 0.0)"
-        self.pressureLabel.text = "\(model.main.pressure)"
-        self.speedOfWindLabel.text = "\(model.wind?.speed ?? 0.0)"
+        self.humidityLabel.text = "\(model.main.humidity)%"
+        self.precipitationLabel.text = "\(model.rain?.oneHour ?? model.snow?.oneHour ?? 0.0) mm"
+        self.pressureLabel.text = "\(model.main.pressure) hPa"
+        self.speedOfWindLabel.text = "\(model.wind?.speed ?? 0.0) km/h"
         
         self.temperatureForShare = Int(model.main.temperature)
         
