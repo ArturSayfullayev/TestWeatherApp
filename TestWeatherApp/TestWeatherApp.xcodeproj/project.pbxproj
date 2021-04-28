@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		754456FE26395E5B00D29D65 /* Double+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754456FD26395E5B00D29D65 /* Double+Ex.swift */; };
 		75BD7FA22631E44800C101CF /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BD7FA12631E44800C101CF /* Networking.swift */; };
 		75BD7FA62631E54100C101CF /* Networking+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BD7FA52631E54100C101CF /* Networking+Ex.swift */; };
 		75BD7FA92631E64E00C101CF /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BD7FA82631E64E00C101CF /* NetworkError.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		754456FD26395E5B00D29D65 /* Double+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Ex.swift"; sourceTree = "<group>"; };
 		75BD7FA12631E44800C101CF /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		75BD7FA52631E54100C101CF /* Networking+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Networking+Ex.swift"; sourceTree = "<group>"; };
 		75BD7FA82631E64E00C101CF /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				75D78BE52631528D000F6BF3 /* ImageView+Ex.swift */,
 				75D78BE8263163E3000F6BF3 /* String+Ex.swift */,
 				75BD7FA52631E54100C101CF /* Networking+Ex.swift */,
+				754456FD26395E5B00D29D65 /* Double+Ex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				75F8CA7A26303BC100174BFC /* ModelForecastWeather.swift in Sources */,
 				75BD7FA92631E64E00C101CF /* NetworkError.swift in Sources */,
 				75BD7FA22631E44800C101CF /* Networking.swift in Sources */,
+				754456FE26395E5B00D29D65 /* Double+Ex.swift in Sources */,
 				75F8CA3E262EB46E00174BFC /* TodayViewController.swift in Sources */,
 				75F8CA5E262F332A00174BFC /* ModelCurrentWeather.swift in Sources */,
 				75F8CA3A262EB46E00174BFC /* AppDelegate.swift in Sources */,
